@@ -1,0 +1,13 @@
+{
+  "name": "login-proyecto",
+  "version": "1.0.0",
+  "description": "Proyecto Login Aurora Comunidad Creativa",
+  "main": "backend/index.js",
+  "scripts": {
+    "start": "npm start --prefix backend",
+    "dev": "npm run dev --prefix backend"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

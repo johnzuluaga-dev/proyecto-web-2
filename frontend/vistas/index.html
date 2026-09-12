@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar Sesión - Aurora Comunidad Creativa</title>
+  <meta name="description" content="Conecta, inspírate y crea junto a miles de artistas en Aurora Comunidad Creativa.">
+  
+  <!-- Google Fonts: Plus Jakarta Sans / Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Elementos decorativos de fondo (Blobs y Estrellas) -->
+  <div class="bg-decorations">
+    <!-- Blob superior izquierdo -->
+    <div class="blob blob-top-left"></div>
+    <div class="blob blob-top-left-2"></div>
+    
+    <!-- Blob inferior derecho -->
+    <div class="blob blob-bottom-right"></div>
+    
+    <!-- Estrellas / Destellos -->
+    <div class="star star-1">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
+      </svg>
+    </div>
+    <div class="star star-2">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
+      </svg>
+    </div>
+    <div class="star star-3">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Mascota Gatito en la esquina inferior derecha -->
+  <div class="mascot-container">
+    <div class="speech-bubble">
+      <span>Miau, ¡crea hoy!</span>
+    </div>
+    <div class="cat-mascot">
+      <svg width="110" height="110" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Cuerpo/Cabeza de gato -->
+        <circle cx="60" cy="65" r="42" fill="#2563EB"/>
+        <!-- Oreja izquierda -->
+        <path d="M26 42L16 14L44 26Z" fill="#2563EB"/>
+        <path d="M28 39L20 18L40 28Z" fill="#60A5FA"/>
+        <!-- Oreja derecha -->
+        <path d="M94 42L104 14L76 26Z" fill="#2563EB"/>
+        <path d="M92 39L100 18L80 28Z" fill="#60A5FA"/>
+        <!-- Ojos -->
+        <circle cx="44" cy="58" r="8" fill="white"/>
+        <circle cx="44" cy="58" r="4" fill="#0F172A"/>
+        <circle cx="46" cy="56" r="1.5" fill="white"/>
+        <circle cx="76" cy="58" r="8" fill="white"/>
+        <circle cx="76" cy="58" r="4" fill="#0F172A"/>
+        <circle cx="78" cy="56" r="1.5" fill="white"/>
+        <!-- Mejillas rosadas -->
+        <ellipse cx="36" cy="68" rx="5" ry="3" fill="#F472B6" opacity="0.6"/>
+        <ellipse cx="84" cy="68" rx="5" ry="3" fill="#F472B6" opacity="0.6"/>
+        <!-- Hocico y Nariz -->
+        <ellipse cx="60" cy="67" rx="9" ry="6" fill="white"/>
+        <polygon points="60,63 56,67 64,67" fill="#EC4899"/>
+        <path d="M57 68C57 70 60 71 60 69C60 71 63 70 63 68" stroke="#0F172A" stroke-width="1.5" stroke-linecap="round"/>
+        <!-- Bigotes -->
+        <line x1="22" y1="62" x2="34" y2="64" stroke="#60A5FA" stroke-width="2" stroke-linecap="round"/>
+        <line x1="20" y1="70" x2="33" y2="69" stroke="#60A5FA" stroke-width="2" stroke-linecap="round"/>
+        <line x1="98" y1="62" x2="86" y2="64" stroke="#60A5FA" stroke-width="2" stroke-linecap="round"/>
+        <line x1="100" y1="70" x2="87" y2="69" stroke="#60A5FA" stroke-width="2" stroke-linecap="round"/>
+        <!-- Cinta/Lazo rojo en la oreja/cuello -->
+        <path d="M88 92C92 98 102 102 105 92C108 82 98 84 94 88Z" stroke="#E11D48" stroke-width="4" stroke-linecap="round" fill="none"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Alerta / Notificación Toast -->
+  <div id="toast" class="toast hidden">
+    <div class="toast-icon" id="toast-icon"></div>
+    <div class="toast-message" id="toast-message"></div>
+  </div>
+
+  <!-- Contenedor Principal (Tarjeta de Login) -->
+  <main class="login-wrapper">
+    <section class="login-card">
+      
+      <!-- Encabezado del Logo -->
+      <div class="logo-container">
+        <div class="logo-box">
+          <span class="logo-letter">A</span>
+          <svg class="logo-star" viewBox="0 0 24 24" fill="white">
+            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Títulos -->
+      <div class="card-header">
+        <span class="brand-tag">AURORA COMUNIDAD CREATIVA</span>
+        <h1 class="card-title">¡Hola de nuevo! Inicia sesión</h1>
+        <p class="card-subtitle">Conecta, inspírate y crea junto a miles de artistas.</p>
+      </div>
+
+      <!-- Formulario de Login -->
+      <form id="loginForm" class="login-form" novalidate>
+        
+        <!-- Campo Correo Electrónico -->
+        <div class="form-group">
+          <div class="label-row">
+            <label for="email" class="form-label">Correo Electrónico</label>
+            <span class="required-tag">* Requerido</span>
+          </div>
+          <div class="input-container">
+            <div class="input-icon email-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path>
+              </svg>
+            </div>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              class="form-input" 
+              placeholder="ejemplo@aurora.art" 
+              required
+              autocomplete="email"
+            >
+          </div>
+        </div>
+
+        <!-- Campo Contraseña -->
+        <div class="form-group">
+          <div class="label-row">
+            <label for="password" class="form-label">Contraseña</label>
+          </div>
+          <div class="input-container">
+            <div class="input-icon password-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </div>
+            <input 
+              type="password" 
+              id="password" 
+              name="password" 
+              class="form-input" 
+              placeholder="Ingresa tu contraseña" 
+              required
+              autocomplete="current-password"
+            >
+            <button type="button" id="togglePassword" class="toggle-password-btn" aria-label="Mostrar contraseña">
+              <!-- Ojo abierto -->
+              <svg class="eye-open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+              <!-- Ojo cerrado -->
+              <svg class="eye-closed hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                <line x1="1" y1="1" x2="23" y2="23"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Fila de Opciones (Crear cuenta y Olvidaste tu contraseña) -->
+        <div class="form-options">
+          <a href="#" id="registerBtn" class="register-link">Crear cuenta</a>
+          <a href="#" id="forgotPasswordBtn" class="forgot-link">¿Olvidaste tu contraseña?</a>
+        </div>
+
+        <!-- Botón de Iniciar Sesión -->
+        <button type="submit" id="submitBtn" class="btn-submit">
+          <span class="btn-text">Iniciar Sesión</span>
+          <svg class="btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+
+      </form>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
